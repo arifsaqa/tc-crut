@@ -20,3 +20,15 @@ Route::get('/', function () {
 Route::get('/index', function () {
     return view('index');
 });
+
+Route::get('/admin/dashboard', function () {
+    return view('admin.dashboard');
+});
+
+Route::get('/admin/users', function () {
+    return view('admin.users');
+});
+
+Route::get('/contoh/templating', function () {
+    return view('admin.contoh');
+});
