@@ -21,9 +21,11 @@ Route::get('/', function () {
 
 /*auth*/
 
-Route::get('/login', [loginController::class, 'index']);
+Route::get('/login', [loginController::class, 'index'])->name('login')->middleware('guest');
+Route::post('/log', [loginController::class, 'login'])->name('login.adminRegister');
 
-Route::get('/register',[registerController::class, 'index']);
+Route::get('/register',[registerController::class, 'index'])->name('register')->middleware('guest');
+Route::post('/registers',[registerController::class, 'adminRegister'])->name('register.adminRegister');
 
 // tampilan
 
