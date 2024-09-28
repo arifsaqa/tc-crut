@@ -32,7 +32,7 @@
         <div class="container-fluid page-body-wrapper">
             @include('partials.navbar')
             
-            <div class="main-panel">
+            <div class="main-panel min-vh-100">
                 <div class="content-wrapper">
                     @yield('content') {{--tempat konten akan ditampilkan--}}
                 </div>

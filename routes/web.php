@@ -1,9 +1,10 @@
 <?php
 
-use App\Http\Controllers\dashboardAdmin;
-use App\Http\Controllers\dashboardUser;
+use App\Http\Controllers\dashboardAdminController;
+use App\Http\Controllers\dashboardUserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\loginController;
+use App\Http\Controllers\manajemenUsersController;
 use App\Http\Controllers\registerController;
 
 /*
@@ -36,12 +37,11 @@ Route::get('/index', function () {
     return view('index');
 });
 
-Route::get('/admin', [dashboardAdmin::class, 'index'])->name('admin')->middleware('auth');
-Route::get('/user', [dashboardUser::class, 'index'])->name('user')->middleware('auth');
+Route::get('/admin', [dashboardAdminController::class, 'index'])->name('admin')->middleware('auth');
+Route::get('/user', [dashboardUserController::class, 'index'])->name('user')->middleware('auth');
 
-Route::get('/admin/users', function () {
-    return view('admin.users');
-});
+Route::get('/admin/users', [manajemenUsersController::class, 'index'])->name('manajemenUsers');
+Route::post('/admin/user/add', [manajemenUsersController::class, 'addUser'])->name('manajemen.users.add');
 
 Route::get('/contoh/templating', function () {
     return view('admin.contoh');

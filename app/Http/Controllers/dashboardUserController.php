@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class dashboardUser extends Controller
+class dashboardUserController extends Controller
 {
     public function index(){
         return view('user.dashboard');

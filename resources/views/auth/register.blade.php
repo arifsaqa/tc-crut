@@ -35,9 +35,9 @@
                                 <div class="form-group">
                                     <label>Username</label>
                                     <input type="text" id="name" name="name"
-                                        class="form-control @error('name')
-                      is invalid
-                    @enderror p_input" />
+                                    class="form-control @error('name')
+                                    is invalid
+                                    @enderror p_input" />
                                     @error('name')
                                         <small class="btn btn-danger">{{ $message }}</small>
                                     @enderror
@@ -60,8 +60,8 @@
                                     <label>Password</label>
                                     <input type="password" id="password" name="password"
                                         class="form-control @error('password')
-                      is invalid
-                    @enderror p_input" />
+                                    is invalid
+                                    @enderror p_input" />
                                     @error('password')
                                         <small class="btn btn-danger">{{ $message }}</small>
                                     @enderror
