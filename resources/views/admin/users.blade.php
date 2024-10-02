@@ -81,7 +81,7 @@
                                     <td>{{ $user->email }}</td>
                                     <td>{{ $user->role }}</td>
                                     <td>
-                                        <button type="button" class="btn btn-warning">Edit</button>
+                                        <a href="/admin/user/edit/{{ $user->id }}">Edit</a>
                                         <button type="button" class="btn btn-danger">Delete</button>
                                     </td>
                                 </tr>
