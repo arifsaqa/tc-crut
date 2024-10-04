@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\loginController;
 use App\Http\Controllers\manajemenUsersController;
 use App\Http\Controllers\registerController;
+use App\Http\Controllers\SubjectController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,8 +29,8 @@ Route::get('/login', [loginController::class, 'index'])->name('login')->middlewa
 Route::post('/log', [loginController::class, 'login'])->name('login.adminRegister');
 Route::post('logout', [loginController::class, 'logout'])->name('logout');
 
-Route::get('/register',[registerController::class, 'index'])->name('register')->middleware('guest');
-Route::post('/registers',[registerController::class, 'adminRegister'])->name('register.adminRegister');
+Route::get('/register', [registerController::class, 'index'])->name('register')->middleware('guest');
+Route::post('/registers', [registerController::class, 'adminRegister'])->name('register.adminRegister');
 
 // tampilan
 
@@ -46,3 +47,7 @@ Route::post('/admin/user/add', [manajemenUsersController::class, 'addUser'])->na
 Route::get('/contoh/templating', function () {
     return view('admin.contoh');
 });
+
+Route::get('/admin/subject', [SubjectController::class, 'index'])->name('admin.subject');
+
+Route::resource('subjects', SubjectController::class);
