@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\dashboardAdminController;
 use App\Http\Controllers\dashboardUserController;
 use Illuminate\Support\Facades\Route;
@@ -25,11 +26,11 @@ Route::get('/', function () {
 
 /*auth*/
 
-Route::get('/login', [loginController::class, 'index'])->name('login')->middleware('guest');
-Route::post('/log', [loginController::class, 'login'])->name('login.adminRegister');
-Route::post('logout', [loginController::class, 'logout'])->name('logout');
+Route::get('/login', [AuthController::class, 'loginPage'])->name('login')->middleware('guest');
+Route::get('/register', [AuthController::class, 'registerPage'])->name('register')->middleware('guest');
 
-Route::get('/register', [registerController::class, 'index'])->name('register')->middleware('guest');
+Route::post('logout', [loginController::class, 'logout'])->name('logout');
+Route::post('/log', [loginController::class, 'login'])->name('login.adminRegister');
 Route::post('/registers', [registerController::class, 'adminRegister'])->name('register.adminRegister');
 
 // tampilan

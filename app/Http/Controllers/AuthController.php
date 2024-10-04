@@ -2,14 +2,20 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class loginController extends Controller
+class AuthController extends Controller
 {
-    public function index()
+    public function loginPage()
     {
         return view('auth.login');
+    }
+
+    public function registerPage()
+    {
+        return view('auth.register');
     }
 
     public function login(Request $request)
@@ -43,5 +49,26 @@ class loginController extends Controller
         $request->session()->regenerateToken();
 
         return redirect('login');
+    }
+
+    public function adminRegister(Request $request)
+    {
+
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|unique:users',
+            'password' => 'required|string|min:5'
+        ]);
+
+        User::create([
+
+            'name' => $request->name,
+            'email' => $request->email,
+            'role' => 2,
+            'password' => bcrypt($request->password)
+
+        ]);
+
+        return redirect()->route('login');
     }
 }
