@@ -45,6 +45,7 @@ Route::post('/admin/user/add', [manajemenUsersController::class, 'addUser'])->na
 Route::get('/admin/user/edit/{id}', [manajemenUsersController::class, 'editUser'])->name('manajemen.user.edit');
 Route::put('/admin/user/update/{id}', [manajemenUsersController::class, 'updateUser'])->name('manajemen.user.update');
 
+
 Route::get('/contoh/templating', function () {
     return view('admin.contoh');
 });

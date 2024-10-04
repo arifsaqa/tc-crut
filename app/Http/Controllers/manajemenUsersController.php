@@ -55,6 +55,14 @@ class manajemenUsersController extends Controller
         return redirect()->to('/admin/users');
     }
 
+    // delete data
+    public function destroy($id)
+    {
+        $user = User::findOrFail($id);
+
+        $user->delete();
+    }
+
 
 
 }
