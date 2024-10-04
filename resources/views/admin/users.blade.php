@@ -40,7 +40,6 @@
                                             <div class="form-group">
                                                 <label for="exampleInputEmail1">Role</label>
                                                 <select class="form-select" aria-label="Default select example" name="role">
-                                                    <option selected>Select Role</option>
                                                     <option value="1">Admin</option>
                                                     <option value="2">User</option>
                                                 </select>
@@ -81,8 +80,10 @@
                                     <td>{{ $user->email }}</td>
                                     <td>{{ $user->role }}</td>
                                     <td>
-                                        <button type="button" class="btn btn-warning">Edit</button>
-                                        <button type="button" class="btn btn-danger">Delete</button>
+                                        <a href="/admin/user/edit/{{ $user->id }}">Edit</a>
+                                        @csrf
+                                        @method('DELETE')
+                                        <a href="/admin/user/delete/{{ $user->id }}">Delete</a>
                                     </td>
                                 </tr>
                             @endforeach
